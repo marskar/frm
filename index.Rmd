@@ -82,7 +82,23 @@ More 💥 for our 💰
 
 ---
 
-# Smoking deaths are the rise [(IHME, 2018)](https://ourworldindata.org/grapher/smoking-and-secondhand-deaths)
+# US smoking deaths tapering off [(ACS, 2019)](https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html)
+
+.center[
+  <a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html">
+    <img src='images/male-cancer-deaths.png' width='425px'></img>
+  </a>
+  ]
+.center[
+  <a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html">
+    <img src='images/female-cancer-deaths.png' width='425px'></img>
+  </a>
+  ]
+
+
+---
+
+# Global smoking deaths are on the rise [(IHME, 2018)](https://ourworldindata.org/grapher/smoking-and-secondhand-deaths)
 
 .center[
   <a href="https://ourworldindata.org/grapher/smoking-and-secondhand-deaths">
