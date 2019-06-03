@@ -260,18 +260,46 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 ```
 
 ---
+# Deep learning versus visual scoring [(Humphries, 2018)](https://link.springer.com/chapter/10.1007/978-3-030-00946-5_32)
 
+.center[
+  <a href="https://link.springer.com/chapter/10.1007/978-3-030-00946-5_32">
+    <img src='images/deeplearning.png' height='450'></img>
+  </a>
+]
+
+
+---
+# Model design
+
+.pull-left[
+  <img src='images/emphnet1.png' height='450'></img>
+]
+
+.pull-left[
+  <img src='images/emphnet2.png' height='450'></img>
+]
+
+
+---
+# Model training
+
+.center[
+  <img src='images/training.png' height='450'></img>
+]
 
 ---
 
 # Future Directions
-- Determine how socioeconomic factors interact with cancer risk
-- Create combined lung risk calculator
-  - that image-detected features and air quality data
-  - to calculate lung cancer risk
-  - for individuals that have undergone chest CT screening
+- Retrain neural network with larger validation set
+
+- Optimize neural network size (complexity)
+  - Decrease training time
+  - Decrease computational requirements
+
+- Remove last layer in deep learning model
+  - 512 image features instead a single probability 
   
-- Calculate how the impact of screening (life years gained) varies geographically
 ---
 # Acknowledgements
 
