@@ -10,8 +10,6 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: '16:9'
-bibliography: bibliography.bib
-csl: aacr.csl
 ---
 
 <style type="text/css">
@@ -24,37 +22,142 @@ csl: aacr.csl
 .remark-slide-number {
   display: none;
 }
+figure {
+  text-align: center;
+  font-size: large;
+}
 </style>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, eval = TRUE, out.height = 450)
 ```
 
-```{r, load_refs, echo=FALSE, cache=FALSE}
-library(RefManageR)
-BibOptions(check.entries = FALSE,
-           bib.style = "authoryear",
-           cite.style = 'alphabetic',
-           style = "markdown",
-           hyperlink = FALSE,
-           dashed = FALSE)
-myBib <- ReadBib("./bibliography.bib", check = FALSE)
-```
+# Goal
 
-# Lung cancer Screening
-- Saves lives
-    - National Lung Screening Trial (NLST)
-        - 20% less mortality (Computed Tomography (CT) vs. X-ray arm `r Citet("nlst2011nejm")`
+- Contribute to cancer risk prediction methods
+
 --
 
-- Is inefficient
-    - National Lung Screening Trial (NLST)
-        - 20% less mortality (Computed Tomography (CT) vs. X-ray arm
+- Improve efficiency of cancer screening
 
-```{r iarc-infographic, out.height=550}
-knitr::include_graphics("iarc-infographic.jpg")
-```
+--
 
+  - Reduce harms
+
+--
+
+  - Maximize benefits
+
+--
+
+  - Decrease costs
+
+--
+
+More 💥 for our 💰
+
+---
+
+# Lung cancer: top killer [(ACS, 2019)](https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html)
+
+
+.center[
+  <a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html">
+    <img src='images/acs-cancer-mortality.png' width='1600px'></img>
+  </a>
+  ]
+
+---
+
+# Smoking: top modifiable risk factor [(Islami, 2018)]( https://doi.org/10.3322/caac.21440)
+
+.center[
+  <figure>
+    <a href=" https://doi.org/10.3322/caac.21440">
+      <img src='images/modifiable-risk-factors.png' width='500px'></img>
+    </a>
+    <figcaption>Estimated Proportion and Number of Incident Cancer Cases Attributable to Evaluated Risk Factors in Adults Aged 30 Years and Older in the United States in 2014</figcaption>
+  </figure>
+  ]
+
+---
+
+# Smoking deaths are the rise [(IHME, 2018)](https://ourworldindata.org/grapher/smoking-and-secondhand-deaths)
+
+.center[
+  <a href="https://ourworldindata.org/grapher/smoking-and-secondhand-deaths">
+    <img src='images/smoking-and-secondhand-deaths.png' width='700px'></img>
+  </a>
+  ]
+
+---
+
+# Lung cancer screening saves lives [(NLST, 2011)](https://doi.org/10.1056/NEJMoa1102873)
+
+.center[
+  <a href="https://doi.org/10.1056/NEJMoa1102873">
+    <img src='images/nlst-mortality.png' width='750px'></img>
+  </a>
+  ]
+
+
+---
+
+# Lung cancer screening is inefficient [(IARC, 2018)](https://www-iarc-fr.ezproxy.nihlibrary.nih.gov/infographics/benefits-and-harms-of-lung-cancer-screening/)
+
+Of 1000 individuals scanned 3 times:
+
+.center[
+  <a href="https://doi.org/10.1016/S2213-2600(19)30136-5">
+  <img src='images/iarc-infographic-normals.png' width='600px'>
+  </img>
+  </a>
+  ]
+
+
+---
+
+# Lung cancer screening is inefficient [(IARC, 2018)](https://www-iarc-fr.ezproxy.nihlibrary.nih.gov/infographics/benefits-and-harms-of-lung-cancer-screening/)
+
+Of 1000 individuals scanned 3 times:
+
+.center[
+  <a href="https://doi.org/10.1016/S2213-2600(19)30136-5">
+  <img src='images/iarc-infographic-positives.png' width='600px'>
+  </img>
+  </a>
+  ]
+
+---
+
+# Lung cancer screening is inefficient [(IARC, 2018)](https://www-iarc-fr.ezproxy.nihlibrary.nih.gov/infographics/benefits-and-harms-of-lung-cancer-screening/)
+
+Of 1000 individuals scanned 3 times:
+
+- major complication from procedure: 1 in 2500 
+- mortality within 60 days of procedure: 1 in 5000 
+
+---
+
+# Lung cancer screening is inefficient [(IARC, 2018)](https://www-iarc-fr.ezproxy.nihlibrary.nih.gov/infographics/benefits-and-harms-of-lung-cancer-screening/)
+
+.center[
+  <a href="https://www.nejm.org/doi/10.1056/NEJMoa1301851">
+  <img src='images/targeted-lung-cancer-screening.png' width='600px'>
+  </img>
+  </a>
+  ]
+
+---
+
+# Targeted lung cancer screening [(Kovalchik, 2013)](https://www.nejm.org/doi/10.1056/NEJMoa1301851) 
+
+.center[
+  <a href="https://www.nejm.org/doi/10.1056/NEJMoa1301851">
+  <img src='images/targeted-lung-cancer-screening.png' width='600px'>
+  </img>
+  </a>
+  ]
 
 ---
 # Questions?

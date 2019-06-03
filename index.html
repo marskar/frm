@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Application of Computed Tomography Data   to Cancer Risk Prediction</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Martin Skarzynski" />
+    <meta name="date" content="2019-06-02" />
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Application of Computed Tomography Data <br/> to Cancer Risk Prediction
+### Martin Skarzynski
+### 2019-06-02
+
+---
+
+
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 35px;
+    padding: 1em 4em 1em 4em;
+}
+.large { font-size: 130% }
+.small { font-size: 60% }
+.remark-slide-number {
+  display: none;
+}
+figure {
+  text-align: center;
+  font-size: large;
+}
+&lt;/style&gt;
+
+
+
+# Goal
+
+- Contribute to cancer risk prediction methods
+
+--
+
+- Improve efficiency of cancer screening
+
+--
+
+  - Reduce harms
+
+--
+
+  - Maximize benefits
+
+--
+
+  - Decrease costs
+
+--
+
+More 💥 for our 💰
+
+---
+
+# Lung cancer: top killer [(ACS, 2019)](https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html)
+
+
+.center[
+  &lt;a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html"&gt;
+    &lt;img src='images/acs-cancer-mortality.png' width='1600px'&gt;&lt;/img&gt;
+  &lt;/a&gt;
+  ]
+
+---
+
+# Smoking: top modifiable risk factor [(Islami, 2018)]( https://doi.org/10.3322/caac.21440)
+
+.center[
+  &lt;figure&gt;
+    &lt;a href=" https://doi.org/10.3322/caac.21440"&gt;
+      &lt;img src='images/modifiable-risk-factors.png' width='500px'&gt;&lt;/img&gt;
+    &lt;/a&gt;
+    &lt;figcaption&gt;Estimated Proportion and Number of Incident Cancer Cases Attributable to Evaluated Risk Factors in Adults Aged 30 Years and Older in the United States in 2014&lt;/figcaption&gt;
+  &lt;/figure&gt;
+  ]
+
+---
+
+# Smoking deaths are the rise [(IHME, 2018)](https://ourworldindata.org/grapher/smoking-and-secondhand-deaths)
+
+.center[
+  &lt;a href="https://ourworldindata.org/grapher/smoking-and-secondhand-deaths"&gt;
+    &lt;img src='images/smoking-and-secondhand-deaths.png' width='700px'&gt;&lt;/img&gt;
+  &lt;/a&gt;
+  ]
+
+---
+
+# Lung cancer screening saves lives [(NLST, 2011)](https://doi.org/10.1056/NEJMoa1102873)
+
+.center[
+  &lt;a href="https://doi.org/10.1056/NEJMoa1102873"&gt;
+    &lt;img src='images/nlst-mortality.png' width='750px'&gt;&lt;/img&gt;
+  &lt;/a&gt;
+  ]
+
+
+---
+
+# Lung cancer screening is inefficient [(IARC, 2018)](https://www-iarc-fr.ezproxy.nihlibrary.nih.gov/infographics/benefits-and-harms-of-lung-cancer-screening/)
+
+Of 1000 individuals scanned 3 times:
+
+.center[
+  &lt;a href="https://doi.org/10.1016/S2213-2600(19)30136-5"&gt;
+  &lt;img src='images/iarc-infographic-normals.png' width='600px'&gt;
+  &lt;/img&gt;
+  &lt;/a&gt;
+  ]
+
+
+---
+
+# Lung cancer screening is inefficient [(IARC, 2018)](https://www-iarc-fr.ezproxy.nihlibrary.nih.gov/infographics/benefits-and-harms-of-lung-cancer-screening/)
+
+Of 1000 individuals scanned 3 times:
+
+.center[
+  &lt;a href="https://doi.org/10.1016/S2213-2600(19)30136-5"&gt;
+  &lt;img src='images/iarc-infographic-positives.png' width='600px'&gt;
+  &lt;/img&gt;
+  &lt;/a&gt;
+  ]
+
+---
+
+# Lung cancer screening is inefficient [(IARC, 2018)](https://www-iarc-fr.ezproxy.nihlibrary.nih.gov/infographics/benefits-and-harms-of-lung-cancer-screening/)
+
+Of 1000 individuals scanned 3 times:
+
+- major complication from procedure: 1 in 2500 
+- mortality within 60 days of procedure: 1 in 5000 
+
+---
+
+# Lung cancer screening is inefficient [(IARC, 2018)](https://www-iarc-fr.ezproxy.nihlibrary.nih.gov/infographics/benefits-and-harms-of-lung-cancer-screening/)
+
+.center[
+  &lt;a href="https://www.nejm.org/doi/10.1056/NEJMoa1301851"&gt;
+  &lt;img src='images/targeted-lung-cancer-screening.png' width='600px'&gt;
+  &lt;/img&gt;
+  &lt;/a&gt;
+  ]
+
+---
+
+# Targeted lung cancer screening [(Kovalchik, 2013)](https://www.nejm.org/doi/10.1056/NEJMoa1301851) 
+
+.center[
+  &lt;a href="https://www.nejm.org/doi/10.1056/NEJMoa1301851"&gt;
+  &lt;img src='images/targeted-lung-cancer-screening.png' width='600px'&gt;
+  &lt;/img&gt;
+  &lt;/a&gt;
+  ]
+
+---
+# Questions?
+
+---
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
