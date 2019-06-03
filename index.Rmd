@@ -176,6 +176,51 @@ Of 1000 individuals scanned 3 times:
   ]
 
 ---
+
+POSITIVES
+
+---
+
+NEGATIVES
+
+---
+# Statistical Models
+1. Bach Model
+  - .small[Bach et al., (2003) Variations in lung cancer risk among smokers.JNCI 95: 470-478]
+1. Prostate, Lung, Colorectal, and Ovarian Cancer Screening Trial Model 2012 (PLCOM2012)
+  - .small[Tammemägi et al., (2013) Selection criteria for lung-cancer screening. NEJM 368:728-736]
+1. Lung Cancer Risk Assessment Tool (LCRAT)
+  - .small[Katki et al., (2016) Development and validation of risk models to select ever-smokers for CT lung cancer screening. JAMA 315:2300-2311]
+---
+# Statistical Models
+Lung Cancer Risk Assessment Tool plus Computed Tomography (LCRAT+CT)
+$$ \Huge r(x)={r_0(x)}^{β_0+CTemp*β_1} $$
+- $r(x)$ : future risk of lung cancer
+- $r_0(x)$ : pre-screening risk
+- $x$ : risk factors in LCRAT
+- $CTemp=1$ if emphysema was detected 
+- $CTemp=0$ if not
+---
+# Future Directions
+- Determine how socioeconomic factors interact with cancer risk
+- Create combined lung risk calculator
+  - that image-detected features and air quality data
+  - to calculate lung cancer risk
+  - for individuals that have undergone chest CT screening
+  
+- Calculate how the impact of screening (life years gained) varies geographically
+---
+# Acknowledgements
+- Hormuzd Katki, PhD (preceptor)
+- Christine Berg, MD
+- Anil Chaturvedi, PhD
+- Paul Pinsky, PhD
+- Ronald M. Summers, MD, PhD
+- Li Cheung, PhD
+---
+class: center, middle
+# Thanks for listening!
+---
 # Questions?
 
 ---
