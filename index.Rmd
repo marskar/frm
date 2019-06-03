@@ -1,0 +1,62 @@
+---
+title: "Application of Computed Tomography Data <br/> to Cancer Risk Prediction"
+author: "Martin Skarzynski"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+bibliography: bibliography.bib
+csl: aacr.csl
+---
+
+<style type="text/css">
+.remark-slide-content {
+    font-size: 35px;
+    padding: 1em 4em 1em 4em;
+}
+.large { font-size: 130% }
+.small { font-size: 60% }
+.remark-slide-number {
+  display: none;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, eval = TRUE, out.height = 450)
+```
+
+```{r, load_refs, echo=FALSE, cache=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE,
+           bib.style = "authoryear",
+           cite.style = 'alphabetic',
+           style = "markdown",
+           hyperlink = FALSE,
+           dashed = FALSE)
+myBib <- ReadBib("./bibliography.bib", check = FALSE)
+```
+
+# Lung cancer Screening
+- Saves lives
+    - National Lung Screening Trial (NLST)
+        - 20% less mortality (Computed Tomography (CT) vs. X-ray arm `r Citet("nlst2011nejm")`
+--
+
+- Is inefficient
+    - National Lung Screening Trial (NLST)
+        - 20% less mortality (Computed Tomography (CT) vs. X-ray arm
+
+```{r iarc-infographic, out.height=550}
+knitr::include_graphics("iarc-infographic.jpg")
+```
+
+
+---
+# Questions?
+
+---
