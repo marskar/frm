@@ -221,6 +221,22 @@ Of 1000 individuals scanned 3 times:
   - .small[Katki et al., (2016) Development and validation of risk models to select ever-smokers for CT lung cancer screening. JAMA 315:2300-2311]
 
 ---
+
+| Covariate                         | Bach | PLCOm2012 | LCRAT |
+|-----------------------------------|------|-----------|-------|
+| Age                               | Yes  | Yes       | Yes   |
+| Gender                            | Yes  | No        | Yes   |
+| Race/ethnicity                    | No   | Yes       | Yes   |
+| Education                         | No   | Yes       | Yes   |
+| BMI                               | No   | Yes       | Yes   |
+| Years/Age quit                    | Yes  | Yes       | Yes   |
+| Years smoked                      | Yes  | Yes       | Yes   |
+| Cigs per day                      | Yes  | Yes       | Yes   |
+| Pack-years                        | No   | No        | Yes   |
+| Lung disease                      | No   | Yes       | Yes   |
+| Num. FDR w/ LC                    | No   | No        | Yes   |
+
+---
 # Statistical Models
 Lung Cancer Risk Assessment Tool plus CT (LCRAT+CT)
 $$ \Huge r(x)={r_0(x)}^{β_0+CTemp*β_1} $$
@@ -250,6 +266,8 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 ---
 
+
+---
 
 # Future Directions
 - Determine how socioeconomic factors interact with cancer risk
