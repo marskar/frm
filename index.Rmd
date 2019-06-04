@@ -320,7 +320,7 @@ Model 4: case ~ log1yrisk + log1yrisk:emphysema + log1yrisk:p_emph - 1
 
 .pull.left[
   <a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html">
-    <img src='images/acs-cancer-mortality.png' height='205'></img>
+    <img src='images/acs-cancer-mortality.png' height='225'></img>
   </a>
   ]
 
