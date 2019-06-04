@@ -320,16 +320,16 @@ Model 4: case ~ log1yrisk + log1yrisk:emphysema + log1yrisk:p_emph - 1
 
 .pull.left[
   <a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html">
-    <img src='images/acs-cancer-mortality.png' height='225'></img>
+    <img src='images/acs-cancer-mortality.png' height='205'></img>
   </a>
   ]
 
 .center[
 <a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html">
-  <img src='images/male-cancer-deaths.png' height='215'></img>
+  <img src='images/male-cancer-deaths.png' height='225'></img>
 </a>
 <a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html">
-  <img src='images/female-cancer-deaths.png' height='215'></img>
+  <img src='images/female-cancer-deaths.png' height='225'></img>
 </a>
 ]
 
