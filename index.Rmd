@@ -57,58 +57,7 @@ knitr::opts_chunk$set(echo = FALSE, eval = TRUE, out.height = 450)
 
   - Decrease costs
 
---
 
-More 💥 for our 💰
-
----
-
-# Lung cancer: top killer [(ACS, 2019)](https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html)
-
-
-.center[
-  <a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html">
-    <img src='images/acs-cancer-mortality.png' height='300'></img>
-  </a>
-  ]
-
----
-
-# Smoking: top modifiable risk factor [(Islami, 2018)]( https://doi.org/10.3322/caac.21440)
-
-.center[
-  <figure>
-    <a href=" https://doi.org/10.3322/caac.21440">
-      <img src='images/modifiable-risk-factors.png' height='375'></img>
-    </a>
-    <figcaption>Estimated Proportion and Number of Incident Cancer Cases Attributable to Evaluated Risk Factors in Adults Aged 30 Years and Older in the United States in 2014</figcaption>
-  </figure>
-  ]
-
----
-
-# US smoking deaths tapering off [(ACS, 2019)](https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html)
-
-.center[
-  <a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html">
-    <img src='images/male-cancer-deaths.png' height='200'></img>
-  </a>
-  ]
-.center[
-  <a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html">
-    <img src='images/female-cancer-deaths.png' height='200'></img>
-  </a>
-  ]
-
----
-
-# Global smoking deaths are on the rise [(IHME, 2018)](https://ourworldindata.org/grapher/smoking-and-secondhand-deaths)
-
-.center[
-  <a href="https://ourworldindata.org/grapher/smoking-and-secondhand-deaths">
-    <img src='images/smoking-and-secondhand-deaths.png' height='450'></img>
-  </a>
-  ]
 
 ---
 
@@ -147,12 +96,14 @@ Of 1000 individuals scanned 3 times:
 
 ---
 
-# Lung cancer screening is inefficient <a href="https://doi.org/10.1016/S2213-2600(19)30136-5">(IARC, 2018)</a>
+# Lung cancer screening benefits > harms <a href="https://doi.org/10.1016/S2213-2600(19)30136-5">(IARC, 2018)</a>
 
 Of 1000 individuals scanned 3 times:
 
 - Major complication from procedure: 1 in 2500 
+  <img src='images/two-fifths.gif' height='50'></img>
 - Death within 60 days of procedure: 1 in 5000 
+  <img src='images/one-fifth.gif' height='50'></img>
 
 ---
 
@@ -163,27 +114,6 @@ Of 1000 individuals scanned 3 times:
     <img src='images/targeted-lung-cancer-screening.png' height='450'></img>
   </a>
   ]
-
----
-
-# High-risk NLST participants [(Robbins, 2019)](https://doi.org/10.1093/jnci/djz041)
-
-.center[
-  <a href="https://doi.org/10.1093/jnci/djz041">
-    <img src='images/lcrat_plus_ct_crop.png' height='450'></img>
-  </a>
-]
-
-
----
-
-# Consolidation
-
-.center[
-  <a href="https://doi.org/10.1093/jnci/djz041">
-    <img src='images/lung_features.jpg' height='450'></img>
-  </a>
-]
 
 ---
 
@@ -232,29 +162,20 @@ Of 1000 individuals scanned 3 times:
 | Num. FDR w/ LC                    | No   | No        | Yes   |
 
 ---
-# Statistical Models
-Lung Cancer Risk Assessment Tool plus CT (LCRAT+CT)
-$$ \Huge r(x)={r_0(x)}^{β_0+CTemp*β_1} $$
-- $\large r(x)$ : future risk of lung cancer
-- $\large r_0(x)$ : pre-screening risk
-- $\large x$ : risk factors in LCRAT
-- $\large CTemp=1$ if emphysema was detected 
-- $\large CTemp=0$ if not
----
 
 # Likelihood ratio test [(lmtest::lrtest)](https://www.rdocumentation.org/packages/lmtest/versions/0.9-36/topics/lrtest)
 
 ```
+lmtest::lrtest(neg_t0, neg_emph_t0)
+```
+
+```
 Model 1: case ~ log1yrisk - 1
 Model 2: case ~ log1yrisk + log1yrisk:emphysema - 1
-Model 3: case ~ log1yrisk + log1yrisk:consolidation - 1
-Model 4: case ~ log1yrisk + log1yrisk:consolidation + log1yrisk:emphysema - 1
 
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   1 -370.74                         
 2   2 -367.43  1 6.6249   0.010056 *  
-3   2 -370.20  0 5.5477  < 2.2e-16 ***
-4   3 -366.64  1 7.1295   0.007583 ** 
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ```
@@ -272,12 +193,63 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 ---
 # Model design
 
-.pull-left[
+.center[
   <img src='images/emphnet1.png' height='450'></img>
+  ]
+
+---
+# Input
+
+
+.center[
+  <img src='images/eight.gif' height='450'></img>
+  ]
+
+---
+# Convolution
+
+
+.center[
+  <img src='images/convolution_schematic.gif' height='450'></img>
+  ]
+
+
+---
+# Batch normalization
+
+1. Calculate the mean and variance of the layers input
+  - mean: ${\mu _{B}={\frac {1}{m}}\sum _{i=1}^{m}x_{i}}$
+  - variance: ${\sigma _{B}^{2}={\frac {1}{m}}\sum _{i=1}^{m}(x_{i}-\mu _{B})^{2}}$
+2. Normalize the layer inputs using the previously calculated batch statistics ${\large {\hat {x}}_{i}={\frac {x_{i}-\mu_{B}}{\sqrt {\sigma _{B}^{^{2}}+\epsilon }}}}$
+3. Scale and shift in order to obtain the output of the layer $\large y_{i}=\gamma {\hat {x}}_{i}+\beta$
+
+
+
+---
+# Rectified Linear Unit (ReLU)
+
+If x < 0, 0
+
+Else, x
+
+$$\huge f(x)=x^{+}=\max(0,x)$$
+
+
+
+---
+# Max pooling
+
+.center[
+  <img src='images/maxpooling.png' height='350'></img>
 ]
 
-.pull-left[
-  <img src='images/emphnet2.png' height='450'></img>
+$\large max(1,1,5,6)=6$
+
+---
+# Model output
+
+.center[
+  <img src='images/emphnet2.png' height='350'></img>
 ]
 
 
@@ -285,21 +257,75 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 # Model training
 
 .center[
-  <img src='images/training.png' height='450'></img>
+  <img src='images/training.png' height='500'></img>
+ ]
+ 
+---
+# Loss function
+
+Cross entropy
+$$\huge H(p,q)=-\sum_{x\in {\mathcal {X}}}p(x)\,\log q(x)$$
+---
+# Physician-annotation versus emphysema probability
+
+```
+lmtest::lrtest(neg_t0, neg_emph_t0, neg_pemph_t0)
+```
+
+```
+Model 1: case ~ log1yrisk - 1
+Model 2: case ~ log1yrisk + log1yrisk:emphysema - 1
+Model 3: case ~ log1yrisk + log1yrisk:p_emph - 1
+Model 4: case ~ log1yrisk + log1yrisk:emphysema + log1yrisk:p_emph - 1
+
+  #Df  LogLik Df  Chisq Pr(>Chisq)    
+1   1 -370.74                         
+2   2 -367.43  1 6.6249    0.01006 *  
+3   2 -367.23  0 0.3978    < 2e-16 ***
+4   3 -365.58  1 3.2994    0.06930 .  
+```
+---
+
+# Future Directions
+
+.center[
+  <a href="https://doi.org/10.1093/jnci/djz041">
+    <img src='images/lung_features.jpg' height='450'></img>
+  </a>
 ]
 
 ---
 
+# Global smoking deaths are on the rise [(IHME, 2018)](https://ourworldindata.org/grapher/smoking-and-secondhand-deaths)
+
+.center[
+  <a href="https://ourworldindata.org/grapher/smoking-and-secondhand-deaths">
+    <img src='images/smoking-and-secondhand-deaths.png' height='500'></img>
+  </a>
+  ]
+
+---
+
 # Future Directions
-- Retrain neural network with larger validation set
 
-- Optimize neural network size (complexity)
-  - Decrease training time
-  - Decrease computational requirements
-
-- Remove last layer in deep learning model
+- Remove last layer (class) in deep learning model
   - 512 image features instead a single probability 
-  
+
+- Combine LCRAT with geospatial data
+
+---
+
+# Smoking: top modifiable risk factor [(Islami, 2018)]( https://doi.org/10.3322/caac.21440)
+
+.center[
+  <figure>
+    <a href=" https://doi.org/10.3322/caac.21440">
+      <img src='images/modifiable-risk-factors.png' height='375'></img>
+    </a>
+    <figcaption>Estimated Proportion and Number of Incident Cancer Cases Attributable to Evaluated Risk Factors in Adults Aged 30 Years and Older in the United States in 2014</figcaption>
+  </figure>
+  ]
+
 ---
 # Acknowledgements
 
@@ -318,5 +344,3 @@ class: center, middle
 ---
 class: center, middle
 # Questions?
-
----
