@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Integrating Statistics with Deep Learning   for Improved Lung Cancer Risk Assessment</title>
+    <title>Statistical modeling and deep learning image analysis for lung cancer risk prediction</title>
     <meta charset="utf-8" />
     <meta name="author" content="Martin Skarzynski" />
-    <meta name="date" content="2020-02-11" />
+    <meta name="date" content="2020-12-15" />
     <script src="libs/header-attrs-2.1/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
@@ -13,9 +13,9 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Integrating Statistics with Deep Learning <br> for Improved Lung Cancer Risk Assessment
+# Statistical modeling and<br>deep learning image analysis<br>for lung cancer risk prediction
 ### Martin Skarzynski
-### 2020-02-11
+### 2020-12-15
 
 ---
 
@@ -43,6 +43,17 @@ figure {
 
 
 
+# Overview
+
+- Lung cancer screening
+- Targeted screening
+- Statistical modeling and deep learning
+- Deep learning image analysis
+- Project 1: Combined approach to deciding screening intervals 
+- Project 2: Disparities in lung cancer screening and outcomes
+
+---
+
 # Lung cancer screening
 
 Low-dose computed tomography (LDCT)
@@ -69,7 +80,7 @@ Low-dose computed tomography (LDCT)
 
 .center[
   &lt;a href="https://twitter.com/chrisalbon/status/1227069427125870592?s=20"&gt;
-    &lt;img src="images/error-types.jpeg" height='600'&gt;&lt;/img&gt;
+    &lt;img src="images/error-types.jpeg" height='500'&gt;&lt;/img&gt;
   &lt;/a&gt;
   ]
 
@@ -120,25 +131,12 @@ Of 1000 individuals scanned 3 times:
 
 ---
 
-# Our approach
+# Targeted lung cancer screening
 
-1. Neural network (NN)
-- If negative, Emphysematous vs. Non-Emphysematous
-- If positive, Benign vs. Malignant
-2. Aggregation algorithm
-- Combine
-    - NN output with
-    - Prescreening risk model output
-
----
-
-# Stacking
-
-.center[
-  &lt;a href="https://blogs.sas.com/content/subconsciousmusings/files/2017/05/modelstacking.png"&gt;
-    &lt;img src="https://blogs.sas.com/content/subconsciousmusings/files/2017/05/modelstacking.png" height='550'&gt;&lt;/img&gt;
-  &lt;/a&gt;
-  ]
+- Targeted screening can
+  - improve efficiency
+  - reduce harms
+  - identify individuals who can safely wait more than 1 year between screens
 
 ---
 
@@ -168,20 +166,16 @@ Of 1000 individuals scanned 3 times:
 
 ---
 
+# New targeted lung cancer screening approach
 
-# Cancer risk prediction
-
-- Typically (binary) classification
-  - Alive vs. Dead
-  - Benign vs. Malignant
-  - Cancerous vs. Non-Cancerous
-  - Negative vs. Positive
-
-.center[
-  &lt;a href="https://media.istockphoto.com/vectors/minus-plus-sign-icons-negative-and-positive-symbols-icon-set-vector-id1014086122?k=6&amp;m=1014086122&amp;s=170667a&amp;w=0&amp;h=MrFi-YgZCa1s5RL9aB0ABF5-UoHqiMiHt-MyVfW3210="&gt;
-    &lt;img src="https://media.istockphoto.com/vectors/minus-plus-sign-icons-negative-and-positive-symbols-icon-set-vector-id1014086122?k=6&amp;m=1014086122&amp;s=170667a&amp;w=0&amp;h=MrFi-YgZCa1s5RL9aB0ABF5-UoHqiMiHt-MyVfW3210=" height='250'&gt;&lt;/img&gt;
-  &lt;/a&gt;
-  ]
+- LCRAT+CT (Lung Cancer Risk Assessment Tool plus Computed Tomography)
+  - individualized statistical model
+  - predicts lung cancer risk
+  - uses pre-screening risk-factors and CT image features
+- LCP-CNN (Lung Cancer Prediction - Convoluted Neural Network)
+  - deep-learning algorithm
+  - provides malignancy score for lung nodules
+  - uses CT image features
 
 ---
 
@@ -206,64 +200,6 @@ Of 1000 individuals scanned 3 times:
 
 ---
 
-# Emphysema
-
-.center[
-  &lt;a href="https://doi.org/10.1093/jnci/djz041"&gt;
-    &lt;img src='images/emphysema.png' height='450'&gt;&lt;/img&gt;
-  &lt;/a&gt;
-]
-
----
-
-# Emphysema is commonly caused by smoking [(ALA)](https://www.lung.org/lung-health-and-diseases/lung-disease-lookup/emphysema/)
-
-.center[
-  &lt;a href="https://doi.org/10.1093/jnci/djz041"&gt;
-    &lt;img src='images/smoking.jpg' height='450'&gt;&lt;/img&gt;
-  &lt;/a&gt;
-]
-
----
-
-# Likelihood ratio test [(lmtest::lrtest)](https://www.rdocumentation.org/packages/lmtest/versions/0.9-36/topics/lrtest)
-
-```
-lmtest::lrtest(neg_t0, neg_emph_t0)
-```
-
-```
-Model 1: case ~ log1yrisk - 1
-Model 2: case ~ log1yrisk + log1yrisk:emphysema - 1
-
-  #Df  LogLik Df  Chisq Pr(&gt;Chisq)
-1   1 -370.74
-2   2 -367.43  1 6.6249   0.010056 *
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-```
-
----
-
-# Deep learning versus visual scoring [(Humphries, 2018)](https://link.springer.com/chapter/10.1007/978-3-030-00946-5_32)
-
-.center[
-  &lt;a href="https://link.springer.com/chapter/10.1007/978-3-030-00946-5_32"&gt;
-    &lt;img src='images/deeplearning.png' height='450'&gt;&lt;/img&gt;
-  &lt;/a&gt;
-]
-
-
----
-
-# Model design
-
-.center[
-  &lt;img src='images/emphnet1.png' height='450'&gt;&lt;/img&gt;
-  ]
-
----
-
 # Input
 
 
@@ -283,17 +219,6 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 ---
 
-# Batch normalization
-
-1. Calculate the mean and variance of the layers input
-  - mean: `\({\mu _{B}={\frac {1}{m}}\sum _{i=1}^{m}x_{i}}\)`
-  - variance: `\({\sigma _{B}^{2}={\frac {1}{m}}\sum _{i=1}^{m}(x_{i}-\mu _{B})^{2}}\)`
-2. Normalize the layer inputs using the previously calculated batch statistics `\({\large {\hat {x}}_{i}={\frac {x_{i}-\mu_{B}}{\sqrt {\sigma _{B}^{^{2}}+\epsilon }}}}\)`
-3. Scale and shift in order to obtain the output of the layer `\(\large y_{i}=\gamma {\hat {x}}_{i}+\beta\)`
-
-
-
----
 
 # Rectified Linear Unit (ReLU)
 
@@ -316,131 +241,132 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 ---
 
-# Model output
+# Dropout
 
 .center[
-  &lt;img src='images/emphnet2.png' height='350'&gt;&lt;/img&gt;
+  &lt;img src='https://forum-cdn.knime.com/uploads/default/c03f5837ac919e7152bdb84b2891d5d0e2674dbf' height='350'&gt;&lt;/img&gt;
+]
+
+
+---
+# Dropout
+
+.center[
   &lt;img src='images/dropout.gif' height='350'&gt;&lt;/img&gt;
 ]
 
 
 ---
 
-# Model training
+# Cancer risk prediction
+
+- Typically (binary) classification
+  - Alive vs. Dead
+  - Benign vs. Malignant
+  - Cancerous vs. Non-Cancerous
+  - Negative vs. Positive
 
 .center[
-  &lt;img src='images/training.png' height='500'&gt;&lt;/img&gt;
- ]
- 
----
+  &lt;a href="https://media.istockphoto.com/vectors/minus-plus-sign-icons-negative-and-positive-symbols-icon-set-vector-id1014086122?k=6&amp;m=1014086122&amp;s=170667a&amp;w=0&amp;h=MrFi-YgZCa1s5RL9aB0ABF5-UoHqiMiHt-MyVfW3210="&gt;
+    &lt;img src="https://media.istockphoto.com/vectors/minus-plus-sign-icons-negative-and-positive-symbols-icon-set-vector-id1014086122?k=6&amp;m=1014086122&amp;s=170667a&amp;w=0&amp;h=MrFi-YgZCa1s5RL9aB0ABF5-UoHqiMiHt-MyVfW3210=" height='250'&gt;&lt;/img&gt;
+  &lt;/a&gt;
+  ]
 
-# Loss function
-
-Cross entropy
-`$$\huge H(p,q)=-\sum_{x\in {\mathcal {X}}}p(x)\,\log q(x)$$`
 
 ---
 
-# Physician-annotation versus emphysema probability
+# One-year lung cancer risk distribution
 
-```
-lmtest::lrtest(neg_t0, neg_emph_t0, neg_pemph_t0)
-```
-
-```
-Model 1: case ~ log1yrisk - 1
-Model 2: case ~ log1yrisk + log1yrisk:emphysema - 1
-Model 3: case ~ log1yrisk + log1yrisk:p_emph - 1
-Model 4: case ~ log1yrisk + log1yrisk:emphysema + log1yrisk:p_emph - 1
-
-  #Df  LogLik Df  Chisq Pr(&gt;Chisq)
-1   1 -370.74
-2   2 -367.43  1 6.6249    0.01006 *
-3   2 -367.23  0 0.3978    &lt; 2e-16 ***
-4   3 -365.58  1 3.2994    0.06930 .
-```
+.center[
+  &lt;a href="https://en.wikipedia.org/wiki/Statistical_risk"&gt;
+    &lt;img src="images/hist.png" height='500'&gt;&lt;/img&gt;
+  &lt;/a&gt;
+]
 
 ---
 
-# New approach for positive scans
-
-```
-Model          AIC     AUROC    gain_capture   deviance   lrt_p_value
-lcrat_ct       1635    0.777    0.555          1613.      NA
-lcp            1520    0.850    0.700          1516.      NA
-lcp_lcrat      1514    0.851    0.701          1508.      0.00431
-lcp_lcrat_ct   1497    0.860    0.719          1473.      0.0000673
-```
-
----
+# Annual versus biennial screening intervals 
 
 .center[
   &lt;a href="https://en.wikipedia.org/wiki/Lorenz_curve"&gt;
-    &lt;img src="images/lorenz.png" height='550'&gt;&lt;/img&gt;
+    &lt;img src="images/lorenz.png" height='500'&gt;&lt;/img&gt;
   &lt;/a&gt;
 ]
 
 ---
 
-# Future Directions
+# Lung cancer screening disparities
 
 .center[
-  &lt;a href="https://doi.org/10.1093/jnci/djz041"&gt;
-    &lt;img src='images/lung_features.jpg' height='450'&gt;&lt;/img&gt;
+  &lt;a href="https://www.healio.com/news/hematology-oncology/20200901/stand-up-to-cancer-receives-grant-to-reduce-disparities-in-research"&gt;
+    &lt;img src="https://www.healio.com/~/media/slack-news/hemonc/misc/infographics/hot-infographics/2020/09-september/poblete_ig_web.jpg" height='500'&gt;&lt;/img&gt;
   &lt;/a&gt;
 ]
 
 ---
 
-# Global smoking deaths are on the rise [(IHME, 2018)](https://ourworldindata.org/grapher/smoking-and-secondhand-deaths)
+# Lung cancer screening disparities
 
 .center[
-  &lt;a href="https://ourworldindata.org/grapher/smoking-and-secondhand-deaths"&gt;
-    &lt;img src='images/smoking-and-secondhand-deaths.png' height='500'&gt;&lt;/img&gt;
+  &lt;a href="https://www.healio.com/news/hematology-oncology/20201008/risk-prediction-model-may-reduce-racial-disparities-in-lung-cancer-screening-outcomes"&gt;
+    &lt;img src="https://www.healio.com/~/media/slack-news/hemonc/misc/infographics/hot-infographics/2020/10-october/hot0820pasquinelli_ig_web.jpg" height='400'&gt;&lt;/img&gt;
   &lt;/a&gt;
-  ]
-
----
-
-# Future Directions
-
-.center[
-  &lt;a href="https://www.mdedge.com/chestphysician/article/158268/lung-cancer/states-show-large-disparities-lung-cancer-mortality"&gt;
-    &lt;img src='images/lung_cancer_us.png' height='450'&gt;&lt;/img&gt;
-  &lt;/a&gt;
-  ]
-
----
-
-# Lung cancer mortality [(ACS, 2019)](https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html)
-
-.pull.left[
-  &lt;a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html"&gt;
-    &lt;img src='images/acs-cancer-mortality.png' height='225'&gt;&lt;/img&gt;
-  &lt;/a&gt;
-  ]
-
-.center[
-&lt;a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html"&gt;
-  &lt;img src='images/male-cancer-deaths.png' height='225'&gt;&lt;/img&gt;
-&lt;/a&gt;
-&lt;a href="https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2019.html"&gt;
-  &lt;img src='images/female-cancer-deaths.png' height='225'&gt;&lt;/img&gt;
-&lt;/a&gt;
 ]
 
+.small[  
+  [Pasquinelli, Mary M. et al. Journal of Thoracic Oncology, Volume 15, Issue 11, August 2020, 1738 - 1747](https://doi.org/10.1016/j.jtho.2020.08.006)
+]
 ---
 
-# Smoking: top modifiable risk factor [(Islami, 2018)]( https://doi.org/10.3322/caac.21440)
+# Lung cancer screening disparities
 
 .center[
-  &lt;figure&gt;
-    &lt;a href=" https://doi.org/10.3322/caac.21440"&gt;
-      &lt;img src='images/modifiable-risk-factors.png' height='425'&gt;&lt;/img&gt;
-    &lt;/a&gt;
-    &lt;figcaption&gt;Estimated Proportion and Number of Incident Cancer Cases Attributable to Evaluated Risk Factors in Adults Aged 30 Years and Older in the United States in 2014&lt;/figcaption&gt;
-  &lt;/figure&gt;
-  ]
+  &lt;a href="https://www.healio.com/news/hematology-oncology/20200506/racial-disparities-observed-in-guidelinerecommended-lung-cancer-imaging"&gt;
+    &lt;img src="https://www.healio.com/~/media/slack-news/hemonc/misc/infographics/hot0320morgan_ig_web.jpg" height='400'&gt;&lt;/img&gt;
+  &lt;/a&gt;
+]
+  
+.small[  
+  [Rustain L Morgan, et al., JNCI: Journal of the National Cancer Institute,  Volume 112, Issue 12, December 2020, 1204–1212](https://academic.oup.com/jnci/article/112/12/1204/5781960)
+]
+---
+
+# Statistical models can augment guidelines
+
+.center[
+  &lt;a href="https://en.wikipedia.org/wiki/Lorenz_curve"&gt;
+    &lt;img src="images/prev.png" height='500'&gt;&lt;/img&gt;
+  &lt;/a&gt;
+]
+  
+---
+
+# Life-years gained versus risk
+
+Individuals who are:
+- Recent heavy smokers (&gt;30 pack-years, &lt;15 quit-years)
+- older (&gt;55 years old)
+- are at higher risk
+- have fewer gainable life-years 
+
+30 pack-year example: 2 packs per day x 15 years
+---
+
+# Statistical models can augment guidelines
+
+.center[
+  &lt;a href="https://en.wikipedia.org/wiki/Quality-adjusted_life_year"&gt;
+    &lt;img src="images/lyg.png" height='500'&gt;&lt;/img&gt;
+  &lt;/a&gt;
+]  
+
+---
+
+# Conclusions
+
+Statistical models can be
+- combined with deep learning image analysis to improve screening efficiency
+- used to enhance guidelines in order to reduce health disparities
 
 ---
 
@@ -448,7 +374,8 @@ lcp_lcrat_ct   1497    0.860    0.719          1473.      0.0000673
 
 - DCEG Cancer Screening Group
   - Hormuzd Katki, PhD (preceptor)
-  - Wes Caldwell
+  - Rebecca Landy, PhD
+  - Corey Young, MS
   - Hilary Robbins, PhD
   - Li Cheung, PhD
   - Christine Berg, MD
@@ -511,6 +438,32 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
@@ -528,17 +481,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
-
-<script>
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-</script>
 
 <script>
 slideshow._releaseMath = function(el) {
