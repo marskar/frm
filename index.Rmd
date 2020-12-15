@@ -173,6 +173,19 @@ Of 1000 individuals scanned 3 times:
 
 ---
 
+# Lung Cancer Prediction - Convoluted Neural Network
+
+.center[
+  <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7365375/">
+    <img src="images/lcpcnn.jpg" height='420'></img>
+  </a>
+  ]
+  
+.small[  
+  [Pierre P. Massion, et al., Am J Respir Crit Care Med. 2020 Jul 15; 202(2): 241–249.](https://dx.doi.org/10.1164%2Frccm.201903-0505OC)
+]
+---
+
 # Image classification
 
 .center[
@@ -308,7 +321,7 @@ $\Large max(1,1,5,6)=6$
 ]
 
 .small[  
-  [Pasquinelli, Mary M. et al. Journal of Thoracic Oncology, Volume 15, Issue 11, August 2020, 1738 - 1747](https://doi.org/10.1016/j.jtho.2020.08.006)
+  [Mary M. Pasquinelli, et al. Journal of Thoracic Oncology, Volume 15, Issue 11, August 2020, 1738 - 1747](https://doi.org/10.1016/j.jtho.2020.08.006)
 ]
 ---
 
