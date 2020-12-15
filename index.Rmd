@@ -382,5 +382,18 @@ class: center, middle
 # Thanks for listening!
 ---
 
+# Data science best practices training sessions
+
+Topics:
+- Project setup and workflows
+- File naming conventions
+- Paths and environments
+- Version control
+
+Sessions:
+- R & RStudio: Tuesday, January 5, 2021, 11AM-12PM
+- Git & GitHub: Tuesday, January 19, 2021, 11AM-12PM
+
+---
 class: center, middle
 # Questions?
